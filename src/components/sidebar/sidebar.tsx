@@ -1,30 +1,21 @@
 import { database } from "@/database/database";
 
 type SideBarProps = {
-  checklistId: string;
+  curChecklist: string;
   children: React.ReactNode;
 };
 
 
-const SideBar: React.FC<SideBarProps> = ( { checklistId, children } ) => {
+const SideBar: React.FC<SideBarProps> = ( { curChecklist, children } ) => {
 
-  const urlPart = database.find(part => (part.name === checklistId));
+  const urlPart = database.find(part => (part.name === curChecklist));
 
   if (!urlPart) {
-    return <div>peça não encontrada{checklistId}</div>;
+    return <div>peça não encontrada{curChecklist}</div>;
   }
 
-  const checklistItems = urlPart.checklist.map((item, index) => (
-    <li key={index}>
-      <label className="">
-        <input type="checkbox" className="mr-2 text-teal-900"/>
-        {item.title}
-      </label>
-    </li>
-  ));
-
   return (
-    <div className="hidden border-r border-teal-300 text-teal-900 relative h-[calc(100vh-48px)] overflow-hidden  
+    <div className="hidden border-r border-teal-300 text-teal-900 relative h-screen overflow-hidden  
     sm:block">
       <div className="overflow-y-scroll h-full">
         <ul className="ml-3 text-teal-900 pt-2">

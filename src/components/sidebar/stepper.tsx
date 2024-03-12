@@ -11,33 +11,42 @@ import Stepper from '@mui/material/Stepper';
 import Typography from '@mui/material/Typography';
 import * as React from 'react';
 
+import { useAppContext } from '@/app/AppContext';
 import { database } from "@/database/database";
-import Link from 'next/link';
 
 type SideBarProps = {
-  checklistId: string;
+  curChecklist: string;
 };
 
-const VerticalLinearStepper: React.FC<SideBarProps> = ( { checklistId }) => {
+const VerticalLinearStepper: React.FC<SideBarProps> = ( { curChecklist }) => {
+  const { updateMainContent } = useAppContext();
+  const { mainContent } = useAppContext();
+  
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    updateMainContent(1);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    updateMainContent(-1);
   };
 
   const handleReset = () => {
     setActiveStep(0);
+    updateMainContent(-mainContent+1);
   };
 
-  const curPart = database.find(item => item.name === checklistId);
+  const curPart = database.find(item => item.name === curChecklist);
+
+ 
 
   if (!curPart) {
-    return <h1>deu erro1 </h1>
+    return <h1>deu erro</h1>
   }
+  const curPartChecklistLength = curPart.checklist.length
 
   return (
     <Box sx={{ maxWidth: 400 }}>
@@ -60,7 +69,7 @@ const VerticalLinearStepper: React.FC<SideBarProps> = ( { checklistId }) => {
         }}>
             <StepLabel
               optional={
-                index === curPart.checklist.length - 1 ? (
+                index === curPartChecklistLength - 1 ? (
                   <Typography variant="caption">Last step</Typography>
                 ) : null
               }
@@ -78,7 +87,7 @@ const VerticalLinearStepper: React.FC<SideBarProps> = ( { checklistId }) => {
                     className='bg-teal-600 text-white font-semibold hover:bg-teal-400'
                   >
                   <p>
-                    {index === database.length - 1 ? 'Finish' : 'Next'}
+                    {index === curPartChecklistLength - 1 ? 'Finish' : 'Next'}
                   </p>
                   </Button>
                   <Button
@@ -95,7 +104,7 @@ const VerticalLinearStepper: React.FC<SideBarProps> = ( { checklistId }) => {
           </Step>
         ))}
       </Stepper>
-      {activeStep === curPart.checklist.length && (
+      {activeStep === curPartChecklistLength && (
         <Paper square elevation={0} sx={{ p: 3 }}>
           <Divider 
           className='mb-4 -mt-3'

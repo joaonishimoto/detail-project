@@ -2,6 +2,7 @@ import Detail  from "@/components/detail/detail";
 import SideBar from "@/components/sidebar/sidebar";
 import VerticalLinearStepper from "@/components/sidebar/stepper";
 
+import { AppProvider } from '@/app/AppContext';
 
 interface PartProps {
   params: {
@@ -16,10 +17,12 @@ export default function Home(props: PartProps) {
 
   return (
     <div className="grid grid-cols-app">
-      <SideBar checklistId={curPart}>
-        <VerticalLinearStepper checklistId={curPart}/>
-      </SideBar>
-      <Detail checklistId={curPart} />
+      <AppProvider>
+        <SideBar curChecklist={curPart}>
+          <VerticalLinearStepper curChecklist={curPart}/>
+        </SideBar>
+        <Detail curChecklist={curPart} />
+      </AppProvider>
     </div> 
   );
 }

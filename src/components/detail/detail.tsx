@@ -2,29 +2,27 @@
 
 import Image from "next/image";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useAppContext } from '@/app/AppContext';
 
 import * as esquadreta from '@/database/esquadreta/import';
 
 import { database } from "@/database/database"
 
-type SideBarProps = {
-  checklistId: string;
+type DetailProps = {
+  curChecklist: string;
 };
 
-const Detail: React.FC<SideBarProps> = ( { checklistId } ) => {
-  const [currentSlide, setCurrentSlide] = useState(19);
-  const nextSlide = () => {
-    // Verifica se chegou ao último slide
-    
-    if (currentSlide < curPartChecklistLength) {
-      setCurrentSlide(currentSlide + 1);
-    } else {
-      setCurrentSlide(1);
-    }
-  };
+const Detail: React.FC<DetailProps> = ( { curChecklist } ) => {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const { mainContent } = useAppContext();
 
-  const curPart = database.find(item => item.name === checklistId)
+  useEffect(() => {
+    setCurrentSlide(mainContent);
+  }, [mainContent]);
+
+  const curPart = database.find(item => item.name === curChecklist)
   
   if (!curPart) {
     return(
@@ -36,7 +34,9 @@ const Detail: React.FC<SideBarProps> = ( { checklistId } ) => {
 
   if (currentSlide > curPartChecklistLength) {
     return(
-      <h1>acabou o checklist</h1>
+      <div className="flex items-center justify-center">
+        Parabéns, você finalizou o checklist!!
+      </div>
     )
   }
 
