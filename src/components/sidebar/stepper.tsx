@@ -77,8 +77,7 @@ const VerticalLinearStepper: React.FC<SideBarProps> = ( { checklistId }) => {
                     sx={{ mt: 1, mr: 1 }}
                     className='bg-teal-600 text-white font-semibold hover:bg-teal-400'
                   >
-                  {/* <Link href={`/checklist/${urlPart.name}-${id+1}`}> */}
-                  <Link href={`/checklist/esquadreta-02`}>
+                  <Link href="/">
                     {index === database.length - 1 ? 'Finish' : 'Next'}
                   </Link>
                   </Button>

@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        app: "minmax(15rem, 18rem) 1fr",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
