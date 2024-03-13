@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useAppContext } from '@/app/AppContext';
 
-import * as esquadreta from '@/database/esquadreta/import';
+import * as esquadreta from '@/database/esquadreta/export';
 
 import { database } from "@/database/database"
 
@@ -14,7 +14,7 @@ type DetailProps = {
   curChecklist: string;
 };
 
-const Detail: React.FC<DetailProps> = ( { curChecklist } ) => {
+export const Detail: React.FC<DetailProps> = ( { curChecklist } ) => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const { mainContent } = useAppContext();
 
@@ -51,5 +51,3 @@ const Detail: React.FC<DetailProps> = ( { curChecklist } ) => {
     </main>
   )
 }
-
-export default Detail

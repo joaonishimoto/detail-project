@@ -1,6 +1,6 @@
-import Detail  from "@/components/detail/detail";
-import SideBar from "@/components/sidebar/sidebar";
-import VerticalLinearStepper from "@/components/sidebar/stepper";
+import { Detail }  from "@/components/detail/detail";
+import { SideBar } from "@/components/sidebar/sidebar";
+import { VerticalLinearStepper } from "@/components/sidebar/stepper";
 
 import { AppProvider } from '@/app/AppContext';
 
@@ -16,7 +16,7 @@ export default function Home(props: PartProps) {
   const curPart = props.params.part
 
   return (
-    <div className="grid grid-cols-app">
+    <div className="grid grid-cols-app bg-teal-950">
       <AppProvider>
         <SideBar curChecklist={curPart}>
           <VerticalLinearStepper curChecklist={curPart}/>

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+        /* Customização da barra de rolagem */
+        /* Firefox */
+        .scrollbar::-webkit-scrollbar {
+          width: 12px;
+      }
+
+      .scrollbar::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 8px;
+      }
+
+      .scrollbar::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 8px;
+      }
+
+      /* Chrome, Safari */
+      .scrollbar {
+          scrollbar-width: thin;
+          scrollbar-color: #fff;
+      }

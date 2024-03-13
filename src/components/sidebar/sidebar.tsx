@@ -1,4 +1,5 @@
 import { database } from "@/database/database";
+import "@/app/globals.css"
 
 type SideBarProps = {
   curChecklist: string;
@@ -6,7 +7,7 @@ type SideBarProps = {
 };
 
 
-const SideBar: React.FC<SideBarProps> = ( { curChecklist, children } ) => {
+export const SideBar: React.FC<SideBarProps> = ( { curChecklist, children } ) => {
 
   const urlPart = database.find(part => (part.name === curChecklist));
 
@@ -15,15 +16,10 @@ const SideBar: React.FC<SideBarProps> = ( { curChecklist, children } ) => {
   }
 
   return (
-    <div className="hidden border-r border-teal-300 text-teal-900 relative h-screen overflow-hidden  
-    sm:block">
-      <div className="overflow-y-scroll h-full">
-        <ul className="ml-3 text-teal-900 pt-2">
-          {children}
-        </ul>
-      </div>
+    <div className="hidden border-r border-teal-300 relative h-screen overflow-hidden sm:block overflow-y-scroll bg-white">
+      {children}
     </div>
   );
 };
 
-export default SideBar;
+

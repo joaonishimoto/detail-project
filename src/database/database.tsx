@@ -5,51 +5,111 @@ export const database = [
     checklist: [
       {
         id: 0,
-        title: "Cotar máximas",
+        title: "máximas",
         desc: "",
-        url: "img/parts/teste.png"
+        url: ""
       },
       {
         id: 1,
-        title: "Cotar furos",
-        desc: "como cotar furos",
-        url: "./img/parts/teste.png"
+        title: "rugosidades",
+        desc: "",
+        url: ""
       },
       {
         id: 2,
-        title: "Cotar ângulos",
-        desc: "como cotar ângulos",
-        url: "img/parts/teste.png"
+        title: "definir master",
+        desc: "",
+        url: ""
       },
       {
-        id: 2,
-        title: "Cotar ângulos",
-        desc: "como cotar ângulos",
-        url: "img/parts/teste.png"
+        id: 3,
+        title: "posicionar master",
+        desc: "",
+        url: ""
       },
       {
-        id: 2,
-        title: "Cotar ângulos",
-        desc: "como cotar ângulos",
-        url: "img/parts/teste.png"
+        id: 4,
+        title: "tol 0.1",
+        desc: "",
+        url: ""
       },
       {
-        id: 2,
-        title: "Cotar ângulos",
-        desc: "como cotar ângulos",
-        url: "img/parts/teste.png"
+        id: 5,
+        title: "pino outro conjunto",
+        desc: "",
+        url: ""
       },
       {
-        id: 2,
-        title: "Cotar ângulos",
-        desc: "como cotar ângulos",
-        url: "img/parts/teste.png"
+        id: 6,
+        title: "posicionar ele",
+        desc: "",
+        url: ""
       },
       {
-        id: 2,
-        title: "Cotar ângulos",
-        desc: "como cotar ângulos",
-        url: "img/parts/teste.png"
+        id: 7,
+        title: "tol 0.1",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 8,
+        title: "simbologia outros pinos",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 9,
+        title: "pino x pino",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 10,
+        title: "tol 0.02",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 11,
+        title: "outros furos",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 12,
+        title: "==",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 13,
+        title: "DIAMETRO H7 + QTD",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 14,
+        title: "DIAMETRO ROSCA + QTD",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 15,
+        title: "DIAMETRO FUROS SIMPLES + QTD",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 16,
+        title: "PERFIL RESTANTE",
+        desc: "",
+        url: ""
+      },
+      {
+        id: 17,
+        title: "FINAL",
+        desc: "",
+        url: ""
       }
     ]
   },
